@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import Stack from "../navigation/Stack"
-import Occasions from "../views/Occasions";
+import Settings from "../views/drawer/Settings"
+import BottomTab from "./BottomTab";
 
 
 const Drawer = createDrawerNavigator();
@@ -9,7 +9,8 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
     return (
         <Drawer.Navigator>
-            <Drawer.Screen name="Occasions" component={Occasions} />
+            <Drawer.Screen name="Occasions" component={BottomTab} />
+            <Drawer.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
         </Drawer.Navigator>
     );
 }
