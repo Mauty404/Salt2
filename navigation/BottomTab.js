@@ -9,15 +9,9 @@ function BottomTab() {
     return (
         <Tab.Navigator>
             <Tab.Screen name="Occasions" component={TopTab} options={{
-                headerLeft: () => (
-                    <Button
-                        onPress={() => alert('This is a button!')}
-                        title="Info"
-                        color="#fff"
-                    />
-                ),
+                headerShown: false
             }}/>
-            <Tab.Screen name="Notifications" component={Notifications} />
+            <Tab.Screen name="Notifications" component={Notifications} options={{ headerShown: false }} />
         </Tab.Navigator>
     );
 }
