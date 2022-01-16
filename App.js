@@ -1,7 +1,7 @@
 import {StatusBar} from 'expo-status-bar';
 import {NavigationContainer} from "@react-navigation/native";
-import Drawer from "./navigation/Drawer";
 import {NativeBaseProvider} from "native-base";
+import GlobalStack from "./navigation/GlobalStack";
 
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
         <NativeBaseProvider>
             <NavigationContainer>
                 <StatusBar style="auto"/>
-                <Drawer/>
+                <GlobalStack/>
             </NavigationContainer>
         </NativeBaseProvider>
     );

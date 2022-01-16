@@ -9,7 +9,7 @@ function TopTab() {
     return (
         <Tab.Navigator>
             <Tab.Screen name="Hottest" component={Hottest} />
-            <Tab.Screen name="Hot" component={Stack} />
+            <Tab.Screen name="Stack" component={Stack} options={{ title: 'HOT' }}/>
         </Tab.Navigator>
     );
 }

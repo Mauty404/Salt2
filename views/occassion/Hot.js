@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, View} from "react-native";
+import {StyleSheet} from "react-native";
 import {Box, Button, HStack, Image, ScrollView, Spacer, Text, VStack,} from "native-base";
 import axios from "axios";
-import * as moment from "moment";
+import {useIsFocused} from "@react-navigation/native";
 
 export default function Hot({navigation}) {
     const [adverts, setAdverts] = useState();
     const [currentPage, setCurrentPage] = useState();
+    const isFocused = useIsFocused();
 
     useEffect(() => {
         const fetchAdverts = async() => {
             try {
-                const res = await axios.get('http://localhost:3000/advert', {
+                const res = await axios.get('http://10.0.2.2:3000/advert', {
 
                 })
                 setAdverts(res.data);
@@ -21,7 +22,7 @@ export default function Hot({navigation}) {
             }
         }
         fetchAdverts().catch();
-    }, [])
+    }, [isFocused])
     return (
         <ScrollView style={styles.view}>
             {adverts && adverts.map((item) => (
@@ -48,7 +49,7 @@ export default function Hot({navigation}) {
                         </Text>
                     </VStack>
                     <Spacer/>
-                    <Text color="#5f6273">{moment(item.creationDate).format('lll')}</Text>
+                    {/*<Text color="#5f6273">{moment(item.creationDate).format('lll')}</Text>*/}
                 </HStack>
                 <HStack>
                     <Image rounded='3xl' mr='2' source={{

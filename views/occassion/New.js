@@ -9,8 +9,7 @@ function New({route, navigation}) {
 
     const fetchAdverts = async() => {
         try {
-            const res = await axios.get(`http://localhost:3000/advert/${id}`, {
-
+            const res = await axios.get(`http://10.0.2.2:3000/advert/${id}`, {
             })
             setAdvert(res.data);
         }
@@ -26,7 +25,8 @@ function New({route, navigation}) {
     return (
         <View>
             <Text>
-                {advert.title}<br/>
+                {advert.title}
+                {"\n"}
                 {advert.link}
             </Text>
         </View>
