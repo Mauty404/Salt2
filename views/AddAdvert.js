@@ -1,21 +1,20 @@
-import {
-    Box,
-    Button,
-    Center,
-    Divider, Flex,
-    FormControl, HStack,
-    Input, Pressable,
-    ScrollView, Spacer,
-    Stack,
-    Text,
-    WarningOutlineIcon
-} from "native-base";
+import {Box, Button, Center, Divider, FormControl, ScrollView, Stack, Text, View} from "native-base";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {TextInput} from 'react-native-paper';
-import React from "react";
+import React, {useState} from "react";
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {RNCamera} from 'react-native-camera';
 
+// const openCamera = async () => {
+//     const result = await launchImageLibrary({mediaType: "mixed"});
+//     return result;
+// }
+
+// const takePicture = async () => {
+//     if(this.camera)
+// }
 
 const AddAdvert = () => {
     const [link, setLink] = React.useState('');
@@ -23,6 +22,7 @@ const AddAdvert = () => {
     const [title, setTitle] = React.useState();
     const [description, setDescription] = React.useState();
     const navigation = useNavigation();
+    const [imageUri, setImageUri] = useState('');
 
     const postAdvert = async () => {
         try {
@@ -75,28 +75,17 @@ const AddAdvert = () => {
                     <Text bold fontSize="lg" mb="2">
                         Photo
                     </Text>
-                    <Pressable
-                        onPress={() => {
-                            console.log("Hello world")
-                        }} style={{ height: 300}}
-                    >
-                        <Box p="5" rounded="8" bg="cyan.700" style={{height: "100%"}}>
-                            <Text mt="2" fontSize={14} color="cyan.100" >
-                                Place for your photo. Click me.
-                            </Text>
-                        </Box>
-                    </Pressable>
-                    <FormControl mb="5">
-                        <FormControl.HelperText>
-                            Enter photo to your occasion.
-                        </FormControl.HelperText>
-                    </FormControl>
-                    <Divider/>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                        <Button
+                            title={'Open camera'}
+                            // onPress={openCamera}
+                        />
+                    </View>
                 </Box>
                 <Box>
                     <Text bold fontSize="lg" mb="2">
                         Details
-                    </Text>
+                    </Text>ex
                     <FormControl isDisabled mb="5">
                         <TextInput
                             label="Price"
