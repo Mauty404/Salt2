@@ -3,6 +3,7 @@ import {createDrawerNavigator} from "@react-navigation/drawer";
 import Settings from "../views/drawer/Settings"
 import BottomTab from "./BottomTab";
 import {Button} from "native-base";
+import Groups from "../views/drawer/Groups";
 
 
 const Drawer = createDrawerNavigator();
@@ -21,6 +22,7 @@ const DrawerNavigator = ({navigation}) => {
                         New adv
                     </Button>
                 )}} />
+            <Drawer.Screen name="Groups" component={Groups}/>
             <Drawer.Screen name="Settings" component={Settings}  />
         </Drawer.Navigator>
     );
