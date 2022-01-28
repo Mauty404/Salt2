@@ -3,6 +3,7 @@ import Hot from "../views/occassion/Hot";
 import {createStackNavigator} from "@react-navigation/stack";
 import AddAdvert from "../views/AddAdvert";
 import Drawer from "./Drawer";
+import CameraView from "../views/Camera";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ const GlobalStack = () => {
                 component={AddAdvert}
                 initialParams={{itemId: 10}}
                 options={{headerShown: true, title: "Add Advert"}}
+            />
+            <Stack.Screen
+                name="CameraView"
+                component={CameraView}
+                options={{headerShown: false}}
             />
         </Stack.Navigator>
     );

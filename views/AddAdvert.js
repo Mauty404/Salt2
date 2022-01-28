@@ -1,20 +1,11 @@
-import {Box, Button, Center, Divider, FormControl, ScrollView, Stack, Text, View} from "native-base";
+import {Box, Button, Center, Divider, FormControl, ScrollView, Stack} from "native-base";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {TextInput} from 'react-native-paper';
-import React, {useState} from "react";
+import React from "react";
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import {RNCamera} from 'react-native-camera';
+import {Text, View} from 'react-native';
 
-// const openCamera = async () => {
-//     const result = await launchImageLibrary({mediaType: "mixed"});
-//     return result;
-// }
-
-// const takePicture = async () => {
-//     if(this.camera)
-// }
 
 const AddAdvert = () => {
     const [link, setLink] = React.useState('');
@@ -22,7 +13,6 @@ const AddAdvert = () => {
     const [title, setTitle] = React.useState();
     const [description, setDescription] = React.useState();
     const navigation = useNavigation();
-    const [imageUri, setImageUri] = useState('');
 
     const postAdvert = async () => {
         try {
@@ -78,7 +68,7 @@ const AddAdvert = () => {
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                         <Button
                             title={'Open camera'}
-                            // onPress={openCamera}
+                            onPress={() => navigation.navigate("CameraView")}
                         />
                     </View>
                 </Box>
