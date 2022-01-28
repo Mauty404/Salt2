@@ -6,7 +6,6 @@ import {useIsFocused} from "@react-navigation/native";
 
 export default function Hot({navigation}) {
     const [adverts, setAdverts] = useState();
-    const [currentPage, setCurrentPage] = useState();
     const isFocused = useIsFocused();
 
     useEffect(() => {
@@ -59,7 +58,7 @@ export default function Hot({navigation}) {
                            size={"xs"}/>
                     <Text color="white" mt="2" fontWeight="medium" fontSize={16}>Mikorolo</Text>
                     <Spacer/>
-                    <Button mt="2" variant='ghost' colorScheme='primary' style={styles.button} onPress={() => navigation.navigate("New", { id: item.id})}>Check</Button>
+                    <Button mt="2" variant='ghost' colorScheme='primary' style={styles.button} onPress={() => navigation.navigate("Details", { id: item.id})}>Check</Button>
                 </HStack>
             </Box>
                 )
