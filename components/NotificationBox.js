@@ -1,10 +1,15 @@
 import {Box, HStack, Image, Spacer, Text, View, VStack} from "native-base";
 import {StyleSheet} from "react-native";
 import React from "react";
+import image1 from "../assets/amazon.jpg"
+import image2 from "../assets/ram_crucial.jpg"
+import image3 from "../assets/shoes_nike.jpg"
+import image4 from "../assets/under_armour_hoodie.jpg"
 
-const paths = ['amazon.jpg', '../assets/ram_crucial.jpg']
+
 
 const NotificationBox = ({details, title, company}) => {
+    const paths = [image1, image2, image3, image4]
     return (
         <View>
             <Box style={styles.container} p="3" rounded="none">
@@ -30,7 +35,7 @@ const NotificationBox = ({details, title, company}) => {
                             padding: 7
                         }}>
                             <HStack>
-                                <Image source={require('../assets/ram_crucial.jpg')}
+                                <Image source={paths[Math.floor(Math.random() * 3)]}
                                        alt="Elo"
                                        style={{width: 50, height: 50, borderRadius: 7}}/>
                                 <VStack>
