@@ -8,8 +8,8 @@ const Tab = createMaterialTopTabNavigator();
 function TopTab() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Hottest" component={Hottest} />
             <Tab.Screen name="Stack" component={Stack} options={{ title: 'HOT' }}/>
+            <Tab.Screen name="Hottest" component={Hottest} />
         </Tab.Navigator>
     );
 }

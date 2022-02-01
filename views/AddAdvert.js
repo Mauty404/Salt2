@@ -1,4 +1,4 @@
-import {Box, Button, Center, Divider, FormControl, Image, ScrollView, Stack} from "native-base";
+import {Box, Button, Center, Divider, FormControl, Image, ScrollView, Spacer, Stack} from "native-base";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {TextInput} from 'react-native-paper';
 import React from "react";
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         width: 100,
-        height: 30
+        height: 50
     },
     photo: {
         flex: 1,
@@ -58,6 +58,7 @@ const AddAdvert = () => {
         <ScrollView
             style={{
                 width: "90%",
+                marginBottom: 20
             }}
         >
             <Stack
@@ -102,13 +103,13 @@ const AddAdvert = () => {
                                 link: link
                             })}
                             style={styles.button}
-                        />
+                        >Add photo</Button>
                     </View>
                 </Box>
                 <Box>
-                    <Text bold fontSize="lg" mb="2">
+                    <Text bold fontSize="lg" mb="4" style={{margin: 10}}>
                         Details
-                    </Text>ex
+                    </Text>
                     <FormControl isDisabled mb="5">
                         <TextInput
                             label="Price"
@@ -145,7 +146,7 @@ const AddAdvert = () => {
                     <Divider/>
                 </Box>
             </Stack>
-            <Button onPress={() => postAdvert()}>
+            <Button style={{height: 50}} onPress={() => postAdvert()}>
                 Submit
             </Button>
         </ScrollView>
