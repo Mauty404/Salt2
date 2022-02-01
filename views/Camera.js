@@ -1,12 +1,10 @@
 import {Camera} from "expo-camera";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import NotificationBox from "../components/NotificationBox";
 import {useEffect, useRef, useState} from "react";
-import * as FileSystem from "expo-file-system/build/FileSystem";
+import {useNavigation, useRoute} from "@react-navigation/native";
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        //width: 350,
         flex: 1,
         backgroundColor: 'transparent',
         flexDirection: 'row',
@@ -23,8 +21,13 @@ const styles = StyleSheet.create({
 
 const CameraView = () => {
 
+    const route = useRoute();
+
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
+    const [photo, setPhoto] = useState();
+
+    const navigation = useNavigation();
 
     const cameraRef = useRef(null);
 
@@ -76,9 +79,11 @@ const CameraView = () => {
                     <TouchableOpacity style={styles.button}
                                       onPress={async () => {
                                           const r = await takePhoto();
-                                          const newFileUri = FileSystem.cacheDirectory + r.filename;
-                                          await FileSystem.copyAsync({from: r.uri, to: newFileUri});
-                                          Alert.alert("DEBUG", JSON.stringify(newFileUri));
+                                          setPhoto(r.uri);
+                                          navigation.push('AddAdvert', {
+                                              ...route.params,
+                                              photoUrl: r.uri,
+                                          });
                                       }}
                     >
                         <Text style={{color: "white", fontWeight: 'bold'}}> Photo </Text>

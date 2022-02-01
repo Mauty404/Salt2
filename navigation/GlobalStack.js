@@ -18,7 +18,7 @@ const GlobalStack = () => {
             <Stack.Screen
                 name="AddAdvert"
                 component={AddAdvert}
-                initialParams={{itemId: 10}}
+                initialParams={{photoUrl: ''}}
                 options={{headerShown: true, title: "Add Advert"}}
             />
             <Stack.Screen
