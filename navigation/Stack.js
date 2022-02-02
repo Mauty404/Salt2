@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import New from "../views/occassion/New";
+import Details from "../views/occassion/Details";
 import Hot from "../views/occassion/Hot";
 
 
@@ -13,8 +13,8 @@ const ContactsStackScreen = () => (
             options={{headerShown: false}}
         />
         <Stack.Screen
-            name="New"
-            component={New}
+            name="Details"
+            component={Details}
             initialParams={{itemId: 10}}
             options={{headerShown: false}}
         />

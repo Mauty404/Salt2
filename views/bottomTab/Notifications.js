@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import NotificationBox from '../../components/NotificationBox'
 import {ScrollView} from "native-base";
 import {useIsFocused} from "@react-navigation/native";
 import axios from "axios";
 
 
-
-const Notifications = ({navigation}) => {
+const Notifications = () => {
     const isFocused = useIsFocused();
     const [notifications, setNotifications] = useState();
 
